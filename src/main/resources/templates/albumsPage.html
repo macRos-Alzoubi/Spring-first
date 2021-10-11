@@ -5,11 +5,24 @@
     <title>Albums</title>
 </head>
 <body>
-<ul th:each="album : ${songsList}">
+<div>
+    <!-- action is the path to our POST action, method = post -->
+    <form action="/albums" method="post">
+        <!-- boring html inputs! the "name" matches the @RequestParam's on the controller -->
+        <p>Title</p><input type="text" name="title"/></br>
+        <p>Artist</p><input type="text" name="artist"/></br>
+        <p>Song Count</p><input type="number" name="songCount"/></br>
+        <p>Length</p><input type="number" name="length"/></br>
+        <p>imageUrl</p><input type="text" name="imageUrl"/></br>
+        <button type="submit">Submit</button>
+    </form>
+</div>
+
+<ul class="Album" th:each="album : ${albums}">
     <li th:text="'Title: ' + ${album.title}"></li>
     <li th:text="'Artist: ' + ${album.artist}"></li>
-    <li th:text="'Songs: ' + ${album.songCount}"></li>
-    <li th:text="'Length: ' + ${album.length}"></li>
+    <li th:text="'Song Count: ' + ${album.songCount}"></li>
+    <li th:text="'Length: ' + ${album.length} +'sec'"></li>
     <img th:src="${album.imageUrl}"/>
 </ul>
 </body>

@@ -12,9 +12,24 @@ import java.util.List;
 @Controller
 public class SongerController {
 
+    @GetMapping("/albums")
+    public String songsAlbums(Model model) {
+        List<Album> albumsList = new ArrayList<>();
+        albumsList.add(new Album("Secrite", "One Republic",
+                "https://s.mxmcdn.net/images-storage/albums/9/9/8/0/2/0/29020899_800_800.jpg",
+                5, 360));
+        albumsList.add(new Album("Hall of fame", "The Script",
+                "https://i.pinimg.com/originals/06/d9/d1/06d9d1a87fe12ce63c18cdeca29078c8.jpg",
+                5, 360));
+        albumsList.add(new Album("War Zone", "The Wanted",
+                "https://images-na.ssl-images-amazon.com/images/I/61Vdrtp2EeL.jpg",
+                5, 360));
+        model.addAttribute("songsList", albumsList);
+        return "albumsPage";
+    }
+
     @GetMapping("/hello")
     public String helloWorld(Model model) {
-        System.out.println("in endpoint");
         model.addAttribute("helloWold", "HelloWold");
         return "helloworld";
     }
@@ -26,23 +41,4 @@ public class SongerController {
         return "capitalized";
     }
 
-    @GetMapping("/albums ")
-    public String getAlbum(Model model) {
-        Album[] albums ={new Album("Secrite", "One Republic",
-                "https://static.wikia.nocookie.net/onerepublic8290/images/e/e1/WakingUpIntl.jpg/revision/latest/scale-to-width-down/1000?cb=20160808062819",
-                5, 360),
-                new Album("Hall of fame", "The Script",
-                        "https://www.google.jo/url?sa=i&url=https%3A%2F%2Fwww.pinterest.jp%2Fpin%2F751467887803708946%2F&psig=AOvVaw2UUSUBtpVXiLF6kjC-uXu0&ust=1633972840385000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCJD7sqqtwPMCFQAAAAAdAAAAABAP",
-                        5, 360),
-                new Album("War Zone", "The Wanted",
-                        "https://www.google.jo/url?sa=i&url=https%3A%2F%2Fwww.europosters.eu%2Fposters%2Fthe-wanted-band-v14881&psig=AOvVaw0egm6K1u7xTwR7sgKJCAaB&ust=1633973001813000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCPCasfetwPMCFQAAAAAdAAAAABAD",
-                        5, 360)
-        };
-//        List<Album> albumList = new ArrayList<>();
-//        albumList.add();
-//        albumList.add();
-//        albumList.add();
-        model.addAttribute("albums", albums);
-        return "albums";
-    }
 }

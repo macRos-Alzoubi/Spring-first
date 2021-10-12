@@ -21,7 +21,7 @@ public class SongerController {
     @PostMapping("/albums")
     public RedirectView createNewAlbum(@ModelAttribute Album album) {
         albumRepository.save(album);
-        return new RedirectView("albumsPage");
+        return new RedirectView("albums");
     }
 
     @GetMapping("/albums")

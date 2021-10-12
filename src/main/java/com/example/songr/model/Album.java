@@ -1,6 +1,7 @@
 package com.example.songr.model;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Album {
@@ -11,6 +12,9 @@ public class Album {
     private String title;
     private String artist;
     private String imageUrl;
+
+    @OneToMany(mappedBy = "album")
+    private List<Song> songs;
     private int songCount;
     private int length;
 

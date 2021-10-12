@@ -17,13 +17,5 @@
         <button type="submit">Submit</button>
     </form>
 </div>
-
-<ul class="Album" th:each="album : ${albums}">
-    <li th:text="'Title: ' + ${album.title}"></li>
-    <li th:text="'Artist: ' + ${album.artist}"></li>
-    <li th:text="'Song Count: ' + ${album.songCount}"></li>
-    <li th:text="'Length: ' + ${album.length} +'sec'"></li>
-    <img th:src="${album.imageUrl}"/>
-</ul>
 </body>
 </html>

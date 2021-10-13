@@ -10,5 +10,5 @@ use the endpoint `localhost:8080/albums`
 to run this app correctly please follow steps:
 
 1. `http://localhost:8080/album` to add an album, it wll redirect you to step 2
-2. `http://localhost:8080/songs/add` to add song
+2. `http://localhost:8080/songs/newSong` to add song
 3. `http://localhost:8080/songs/album/{album}` to render songs that belongs to a specific album

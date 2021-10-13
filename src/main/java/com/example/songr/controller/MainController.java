@@ -16,14 +16,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Controller
-public class SongerController {
+public class MainController {
 
     @Autowired
     private AlbumRepository albumRepository;
 
     private final SongRepository songRepository;
 
-    public SongerController(SongRepository songRepository){
+    public MainController(SongRepository songRepository){
         this.songRepository = songRepository;
     }
 
@@ -46,7 +46,7 @@ public class SongerController {
         return "songs";
     }
 
-    @GetMapping("/songs/addSong")
+    @GetMapping("/songs/newSong")
     public String addSong(){
         return "addSong";
     }
